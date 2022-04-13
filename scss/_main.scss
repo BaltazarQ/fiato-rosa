@@ -54,6 +54,7 @@ aside {
 .intentions-form {
     input {
         font-size: 1em;
+        margin: 10px 0px;
     }
 }
 
@@ -271,6 +272,13 @@ MEDIA
         display: flex;
         flex-direction: column;
         align-items: center;
+
+        &-form {
+            input {
+                font-size: 1em;
+                margin: 0px 10px;
+            }
+        }
     }
 
     .one-intention {
