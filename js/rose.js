@@ -299,7 +299,7 @@ myForm.addEventListener('submit', function(event) {
         // console.log(`aktualny index desiatku od zaciatku ${actualYearTens}`)
         
         resultSection.innerHTML = ''
-        paragraph.textContent = `<strong>${resultName}</strong>, tvoj desiatok na aktuálny mesiac je: <strong>... ${resultTens}</strong>.`
+        paragraph.innerHTML = `<strong>${resultName}</strong>, tvoj desiatok na aktuálny mesiac je: <strong>... ${resultTens}</strong>.`
         resultSection.appendChild(paragraph)
         
     } else {
