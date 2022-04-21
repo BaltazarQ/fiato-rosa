@@ -16,6 +16,6 @@
          window.location.href = 'members.html'
      } else {
          let wrongDataText = document.querySelector('.wrong-data-text')
-         wrongDataText.textContent = 'zle meno alebo heslo'
+         wrongDataText.textContent = 'Zadal si zlé meno alebo heslo.'
      }
  })
