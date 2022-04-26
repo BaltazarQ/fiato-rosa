@@ -155,6 +155,14 @@ aside {
       color: $text-color;
   }
 
+  ::selection {
+    color: #fff;
+    background: $navbar-hover
+}
+button::selection {
+    background: transparent
+}
+
 
 /*
 LOGIN
