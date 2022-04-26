@@ -194,6 +194,11 @@ aside {
 .tooltip:hover .tooltiptext {
   visibility: visible; }
 
+.notes {
+  font-size: 0.8em;
+  font-style: italic;
+  color: #0068af; }
+
 /*
 LOGIN
 */
