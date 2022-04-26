@@ -199,6 +199,13 @@ aside {
   font-style: italic;
   color: #0068af; }
 
+::selection {
+  color: #fff;
+  background: #ff8095; }
+
+button::selection {
+  background: transparent; }
+
 /*
 LOGIN
 */
