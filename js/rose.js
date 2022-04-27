@@ -150,7 +150,6 @@ let filters = {
 let members = document.querySelector('#members')
 let myMonth = document.querySelector('#month')
 let myName = document.querySelector('#name')
-// let oneMonth = document.querySelector('#month').options
 let myMember = document.querySelector('#full-name')
 
 
@@ -232,22 +231,6 @@ fiato.forEach(member => {
 
 
 // 
-// VYTVORENIE SELECT ZOZNAMU MESIACOV
-// 
-// allMonth.forEach(oneMonth => {
-    
-//     let monthOption = document.createElement('option')
-    
-//     monthOption.textContent = oneMonth.month
-//     monthOption.setAttribute('class', 'actual-month')
-//     monthOption.setAttribute('value', oneMonth.index)
-    
-//     myMonth.appendChild(monthOption)
-// });
-
-
-
-// 
 // AKTUALNY DATUM
 // 
 
@@ -257,7 +240,6 @@ var mm = String(today.getMonth() + 1).padStart(1, '0'); //January is 0!
 var yyyy = today.getFullYear();
 
 today = dd + '.' + mm + '.' + yyyy;
-// document.write(today);
 document.querySelector('#date').textContent = today;
 
 
@@ -318,11 +300,3 @@ myForm.addEventListener('submit', function(event) {
         
     }
 })
-
-
-
-
-
-
-
-// 

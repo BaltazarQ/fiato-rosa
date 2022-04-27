@@ -1,13 +1,10 @@
 header {
     @include flex-column;
     justify-content: space-between;
-
     background: $header-bg-gradient;
     background: #def5ff;
-
     padding:  1% 5%;
     border-bottom: 3px solid $header-border;
-    // align-items: flex-end;
 
     .title {
         font-family: 'Great Vibes', cursive;
@@ -32,7 +29,6 @@ header {
 .navbar-section {
     @include flex-row;
     justify-content: flex-end;
-    // height: 2em;
     font-size: 0.85em;
     width: 100%;
 }
@@ -41,7 +37,6 @@ header {
     @include flex-row;
     padding: 0;
     margin: 0;
-    // width: 50%;
     
     & li {
         list-style: none;
@@ -68,7 +63,6 @@ header {
             border-bottom: 1px solid $navbar-hover;
         }
     }
-    
 }
 
 .rose-a {
@@ -116,7 +110,6 @@ header {
         a {
             font-size: 0.5em;
         }
-
     }
 
     .navbar li {

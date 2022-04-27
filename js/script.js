@@ -37,20 +37,3 @@ intForm.addEventListener('submit', function(event) {
         document.querySelector('.int-list').appendChild(oneNameHtml)
     });
 })
-
-// vypisovanie spat do stranky
-// let buttonToList = document.querySelector('#int-result')
-// buttonToList.addEventListener('click', function(event){
-//     document.querySelector('.int-list').innerHTML = ''
-//     let intFromStorageJSON = JSON.parse(localStorage.getItem('intentions'))
-
-//     intFromStorageJSON.forEach(function(myName){
-//         const oneNameHtml = generateHTMLstructure(myName)
-//         document.querySelector('.int-list').appendChild(oneNameHtml)
-//     });
-// })
-
-
-
-
-

@@ -58,19 +58,15 @@ aside {
     }
 }
 
-
-
-
 #full-mame {
     height: 50px;
 }
+
 #search-name {
     display: none;
 }
 
 .intentions{
-    // font-family: 'Roboto Slab', serif;
-    // height: 100%;
     padding: 5%;
     font-size: 1em;
 
@@ -91,7 +87,6 @@ aside {
                 
                 &:hover {
                     color: $navbar-hover;
-                    
                 }
             }
         }
@@ -120,14 +115,11 @@ aside {
 /* Tooltip container */
 .tooltip {
     position: relative;
-    // display: inline-block;
-    // border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
   }
   
   /* Tooltip text */
   .tooltip .tooltiptext {
     visibility: hidden;
-    // width: 55px;
     color: darken($navbar-hover, 10%);
     background-color: transparent;
     text-align: center;
@@ -136,7 +128,7 @@ aside {
     border-radius: 6px;
     font-size: 1.5em;
    
-    /* Position the tooltip text - see examples below! */
+    /* Position the tooltip text */
     position: absolute;
     z-index: 1;
     top: -5px;
@@ -162,6 +154,7 @@ aside {
 button::selection {
     background: transparent
 }
+
 
 
 /*
@@ -192,8 +185,6 @@ LOGIN
 
 
 
-
-
 // Kontakty
 
 .contact {
@@ -207,8 +198,8 @@ LOGIN
         padding: 0 5%;
         color: $header-border;
         letter-spacing: 3px;
-        
     }
+    
     &-name {
         font-size: 2.5em;
         color: $title-color;
@@ -217,23 +208,20 @@ LOGIN
 
     a {
         color: $text-color;
-
     }
 }
 
 .main-contact {
     border-right: 1px solid $navbar-hover;
+
     & p:hover a {
         color: $navbar-hover;
     }
 }
 
 .social-icon {
-    // @include flex-row;
     display: flex;
     flex-direction: column;
-    // width: 100%;
-    // justify-content: space-evenly;
     
     a {
         display: flex;
@@ -242,7 +230,6 @@ LOGIN
         align-items: center;
         font-size: 1em;
         width: 21%;
-        // margin: 2%;
         padding: 5px;
         border-radius: 50%;
 
@@ -261,11 +248,10 @@ LOGIN
 
             transform: scale(1.5) translate(-50%, 0);
             transition: 0.5s;
-
         }
-
     }
 }
+
 
 
 /* 
@@ -309,8 +295,8 @@ MEDIA
         &-name {
             font-size: 1.5em;
         }
-
     }
+    
     .main-contact {
         border-right: none;
     }
