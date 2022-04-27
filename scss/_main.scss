@@ -147,9 +147,17 @@ aside {
       color: $text-color;
   }
 
+  ::-moz-selection {
+    color: #fff;
+    background: $navbar-hover
+}
+
   ::selection {
     color: #fff;
     background: $navbar-hover
+}
+button::-moz-selection {
+    background: transparent
 }
 button::selection {
     background: transparent

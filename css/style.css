@@ -184,7 +184,7 @@ aside {
   border: 1px solid #ff4d6a;
   border-radius: 6px;
   font-size: 1.5em;
-  /* Position the tooltip text - see examples below! */
+  /* Position the tooltip text */
   position: absolute;
   z-index: 1;
   top: -5px;
@@ -199,9 +199,16 @@ aside {
   font-style: italic;
   color: #0068af; }
 
+::-moz-selection {
+  color: #fff;
+  background: #ff8095; }
+
 ::selection {
   color: #fff;
   background: #ff8095; }
+
+button::-moz-selection {
+  background: transparent; }
 
 button::selection {
   background: transparent; }
@@ -317,10 +324,10 @@ MEDIA
       .social-icon a i {
         margin-right: 5px; } }
 .main-teens {
-  padding: 0 5%;
-  flex: 4;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  padding: 0 5%;
+  flex: 4; }
   .main-teens section {
     border-bottom: 1px solid #ff8095; }
     .main-teens section:last-child {
