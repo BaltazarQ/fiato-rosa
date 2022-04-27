@@ -28,120 +28,121 @@ let allMonth = [
 ]
 
 let fiato = [
-    {name:  'Lukáš Ondeček',
-    index: 0},
-    {name:  'Nikola Mihalčinová',
-    index: 1},
-    {name:  'Antónia Labášová',
-    index: 2},
-    {name:  'Lucia Labášová',
-    index: 3},
-    {name:  'Martina Steranková',
-    index: 4},
-    {name:  'Denisa Patkaňová',
-    index: 5},
-    {name:  'Mária Stojkovičová',
-    index: 6},
-    {name:  'Stanislava Stojkovičová',
-    index: 7},
     {name:  'Veronika Nemcová',
-    index: 8},
+    index: 0},
     {name:  'Róbert Chovanec',
-    index: 9},
+    index: 1},
     {name:  'Daniela Mäsiarová',
-    index: 10},
+    index: 2},
     {name:  'Jana Maďarová',
-    index: 11},
+    index: 3},
     {name:  'Zuzana Maďarová',
-    index: 12},
+    index: 4},
     {name:  'Nikola Kurtyová',
-    index: 13},
+    index: 5},
     {name:  'Mária Kuchtová',
-    index: 14},
+    index: 6},
     {name:  'Miriam Kažimirová',
-    index: 15},
+    index: 7},
     {name:  'Daniela Maďarová',
-    index: 16},
+    index: 8},
     {name:  'Martin Mika',
-    index: 17},
+    index: 9},
     {name:  'volne 1',
-    index: 18},
+    index: 10},
     {name:  'Marcel Kusenda',
-    index: 19},
+    index: 11},
     {name:  'Gabriela Brehuvová',
-    index: 20},
+    index: 12},
     {name:  'volne 2',
-    index: 21},
+    index: 13},
     {name:  'Martin Brejčák',
-    index: 22},
+    index: 14},
     {name:  'Stanislav Prokop',
-    index: 23},
+    index: 15},
     {name:  'Zuzana Prokopová',
+    index: 16},
+    {name:  'Lukáš Ondeček',
+    index: 17},
+    {name:  'Nikola Mihalčinová',
+    index: 18},
+    {name:  'Antónia Labášová',
+    index: 19},
+    {name:  'Lucia Labášová',
+    index: 20},
+    {name:  'Martina Steranková',
+    index: 21},
+    {name:  'Denisa Patkaňová',
+    index: 22},
+    {name:  'Mária Stojkovičová',
+    index: 23},
+    {name:  'Stanislava Stojkovičová',
     index: 24},
 ]
 
 let rose = [
-
-    // BOLESTNY
-    {name: 'Ježiš, ktorý sa pre nás krvou potil',
-    index: 0},
-    {name: 'Ježiš, ktorý bol pre nás bičovaný',
-    index: 1},
-    {name: 'Ježiš, ktorý bol pre nás tŕním korunovaný',
-    index: 2},
-    {name: 'Ježiš, ktorý pre nás kríž niesol',
-    index: 3},
-    {name: 'Ježiš, ktorý bol pre nás ukrižovaný',
-    index: 4},
-
-    // MILOSRDENSTVA
-    {name: 'Prvý desiatok Ruženca milosrdenstva',
-    index: 5},
-    {name: 'Druhý desiatok Ruženca milosrdenstva',
-    index: 6},
-    {name: 'Tretí desiatok Ruženca milosrdenstva',
-    index: 7},
-    {name: 'Štvrtý desiatok Ruženca milosrdenstva',
-    index: 8},
-    {name: 'Piaty desiatok Ruženca milosrdenstva',
-    index: 9},
     
     // SLAVNOSTNY
     {name: 'Ježiš, ktorý slávne vstal z mŕtvych',
-    index: 10},
+    index: 0},
     {name: 'Ježiš, ktorý slávne vystúpil do neba',
-    index: 11},
+    index: 1},
     {name: 'Ježiš, ktorý nám zoslal Ducha Svätého',
-    index: 12},
+    index: 2},
     {name: 'Ježiš, ktorý ťa, Panna, vzal do neba',
-    index: 13},
+    index: 3},
     {name: 'Ježiš, ktorý ťa, Panna, v nebi korunoval',
+    index: 4},
+
+    // RADOSTNY  
+    {name: 'Ježiš, ktorého si, Panna, z Ducha Svätého počala',
+    index: 5},
+    {name: 'Ježiš, ktorého si, Panna, pri návšteve Alžbety v živote nosila',
+    index: 6},
+    {name: 'Ježiš, ktorého si, Panna, v Betleheme porodila',
+    index: 7},
+    {name: 'Ježiš, ktorého si, Panna, so svätým Jozefom v chráme obetovala',
+    index: 8},
+    {name: 'Ježiš, ktorého si, Panna, so svätým Jozefom v chráme našla',
+    index: 9},
+
+    // SVETLA
+    {name: 'Ježiš, ktorý bol pokrstený v Jordáne a začal svoje verejné účinkovanie',
+    index: 10},
+    {name: 'Ježiš, ktorý zázrakom v Káne Galilejskej otvoril srdcia učeníkov pre vieru',
+    index: 11},
+    {name: 'Ježiš, ktorý ohlasoval Božie kráľovstvo a vyzýval ľud na pokánie',
+    index: 12},
+    {name: 'Ježiš, ktorý sa ukázal v božskej sláve na vrchu premenenia',
+    index: 13},
+    {name: 'Ježiš, ktorý nám dal seba samého za pokrm a nápoj v Oltárnej sviatosti',
     index: 14},
 
- // RADOSTNY  
-    {name: 'Ježiš, ktorého si, Panna, z Ducha Svätého počala',
+    // BOLESTNY
+    {name: 'Ježiš, ktorý sa pre nás krvou potil',
     index: 15},
-    {name: 'Ježiš, ktorého si, Panna, pri návšteve Alžbety v živote nosila',
+    {name: 'Ježiš, ktorý bol pre nás bičovaný',
     index: 16},
-    {name: 'Ježiš, ktorého si, Panna, v Betleheme porodila',
+    {name: 'Ježiš, ktorý bol pre nás tŕním korunovaný',
     index: 17},
-    {name: 'Ježiš, ktorého si, Panna, so svätým Jozefom v chráme obetovala',
+    {name: 'Ježiš, ktorý pre nás kríž niesol',
     index: 18},
-    {name: 'Ježiš, ktorého si, Panna, so svätým Jozefom v chráme našla',
+    {name: 'Ježiš, ktorý bol pre nás ukrižovaný',
     index: 19},
-
- // SVETLA
-    {name: 'Ježiš, ktorý bol pokrstený v Jordáne a začal svoje verejné účinkovanie',
+    
+    // MILOSRDENSTVA
+    {name: 'Prvý desiatok Ruženca milosrdenstva',
     index: 20},
-    {name: 'Ježiš, ktorý zázrakom v Káne Galilejskej otvoril srdcia učeníkov pre vieru',
+    {name: 'Druhý desiatok Ruženca milosrdenstva',
     index: 21},
-    {name: 'Ježiš, ktorý ohlasoval Božie kráľovstvo a vyzýval ľud na pokánie',
+    {name: 'Tretí desiatok Ruženca milosrdenstva',
     index: 22},
-    {name: 'Ježiš, ktorý sa ukázal v božskej sláve na vrchu premenenia',
+    {name: 'Štvrtý desiatok Ruženca milosrdenstva',
     index: 23},
-    {name: 'Ježiš, ktorý nám dal seba samého za pokrm a nápoj v Oltárnej sviatosti',
+    {name: 'Piaty desiatok Ruženca milosrdenstva',
     index: 24},
 ]
+
 
 
 let filters = {
@@ -254,28 +255,24 @@ let resultSection = document.querySelector('.result-section')
 myForm.addEventListener('submit', function(event) {
     event.preventDefault()
 
-    // odchytim index mena
+    // odchytim index mena zo select zoznamu vo formulari
     i = event.target[0].value
     
     yyyy = Number(yyyy)
     mm = Number(mm)
     i = Number(i) 
-    // let actualYearTens = i+2
 
-    let actualYearTens = (yyyy - 2022)*12 + i + 2   // aktualny desiatok od zaciatku ratania (november 2021)
+    let actualYearTens = (yyyy - 2022)*12 + i + mm - 1 // aktualny desiatok od zaciatku ratania (januar 2022) => pocet mesiacov od zaciatku pocitania (januar 2022) + index mena(ratany od 0) + aktualny mesiac(ratany od 1) -1 (pretoze mesiac je ratany od 1)
     let number = Number(actualYearTens)
     let resultName = fiato[i].name                  // hladane meno
-    let sum = mm + i + 1                            // aktualny mesiac(ratane od 1) + index mena (ratany od 0) + 1 (pretoze index desiatkov ratany od november 2021, aktualne nastavovane vypisovnaie od januar 2022, teda posun o 2 mesiace -> 1 z 'mm' a teda este +1)
 
     if (actualYearTens > 24) {
         number = (actualYearTens % 25)
-        sum = (sum % 25)
         
         let resultTens = rose[number].name
         let paragraph = document.createElement('p')
         
         // tento console.log si nechavam pre buducu kontrolu
-        // console.log(`aktualny index desiatka tento mesiac v tomto roku: ${sum} - ${rose[sum].name}` )
         // console.log(`hladany rok ${yyyy}`)
         // console.log(`Index desiatku v tento mesiac v hladanom roku: ${number} - ${rose[number].name}`)
         // console.log(`aktualny index desiatku od zaciatku ${actualYearTens}`)
@@ -289,7 +286,6 @@ myForm.addEventListener('submit', function(event) {
         let paragraph = document.createElement('p')
 
         // tento console.log si nechavam pre buducu kontrolu
-        // console.log(`aktualny index desiatka tento mesiac v tomto roku: ${sum} - ${rose[sum].name}` )
         // console.log(`hladany rok ${yyyy}`)
         // console.log(`Index desiatku v tento mesiac v hladanom roku: ${number} - ${rose[number].name}`)
         // console.log(`aktualny index desiatku od zaciatku ${actualYearTens}`)
