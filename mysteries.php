@@ -1,3 +1,47 @@
+<?php
+
+    $joyfulTeens = [
+        'Ježiš, ktorého si, Panna, z Ducha Svätého počala.',
+        'Ježiš, ktorého si, Panna, pri návšteve Alžbety v živote nosila.',
+        'Ježiš, ktorého si, Panna, v Betleheme porodila.',
+        'Ježiš, ktorého si, Panna, so svätým Jozefom v chráme obetovala.',
+        'Ježiš, ktorého si, Panna, so svätým Jozefom v chráme našla.',
+    ];
+
+    $luminousTeens = [
+        'Ježiš, ktorý bol pokrstený v Jordáne a začal svoje verejné účinkovanie.',
+        'Ježiš, ktorý zázrakom v Káne Galilejskej otvoril srdcia učeníkov pre vieru.',
+        'Ježiš, ktorý ohlasoval Božie kráľovstvo a vyzýval ľud na pokánie.',
+        'Ježiš, ktorý sa ukázal v božskej sláve na vrchu premenenia.',
+        'Ježiš, ktorý nám dal seba samého za pokrm a nápoj v Oltárnej sviatosti.',
+    ];
+
+    $sorrowfulTeens = [
+        'Ježiš, ktorý sa pre nás krvou potil.',
+        'Ježiš, ktorý bol pre nás bičovaný.',
+        'Ježiš, ktorý bol pre nás tŕním korunovaný.',
+        'Ježiš, ktorý pre nás kríž niesol.',
+        'Ježiš, ktorý bol pre nás ukrižovaný.',
+    ];
+
+    $gloriousTeens = [
+        'Ježiš, ktorý slávne vstal z mŕtvych.',
+        'Ježiš, ktorý slávne vystúpil do neba.',
+        'Ježiš, ktorý nám zoslal Ducha Svätého.',
+        'Ježiš, ktorý ťa, Panna, vzal do neba.',
+        'Ježiš, ktorý ťa, Panna, v nebi korunoval.',
+    ];
+
+
+    function Teens ($teens) {
+        foreach ($teens as $oneTeen => $value) {
+            echo '<li>' . $value . '</li>';
+        }
+    }
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,11 +81,11 @@
                     
                     <p><strong>Tajomstvá:</strong></p>
                     <ol class="teens">
-                        <li>Ježiš, ktorého si, Panna, z Ducha Svätého počala.</li>
-                        <li>Ježiš, ktorého si, Panna, pri návšteve Alžbety v živote nosila.</li>
-                        <li>Ježiš, ktorého si, Panna, v Betleheme porodila.</li>
-                        <li>Ježiš, ktorého si, Panna, so svätým Jozefom v chráme obetovala.</li>
-                        <li>Ježiš, ktorého si, Panna, so svätým Jozefom v chráme našla.</li>
+
+                        <?php 
+                            Teens($joyfulTeens);
+                        ?>
+
                     </ol>
                 </div>
             </section>
@@ -59,11 +103,11 @@
 
                     <p><strong>Tajomstvá:</strong></p>
                     <ol class="teens">
-                        <li>Ježiš, ktorý bol pokrstený v Jordáne a začal svoje verejné účinkovanie.</li>
-                        <li>Ježiš, ktorý zázrakom v Káne Galilejskej otvoril srdcia učeníkov pre vieru.</li>
-                        <li>Ježiš, ktorý ohlasoval Božie kráľovstvo a vyzýval ľud na pokánie.</li>
-                        <li>Ježiš, ktorý sa ukázal v božskej sláve na vrchu premenenia.</li>
-                        <li>Ježiš, ktorý nám dal seba samého za pokrm a nápoj v Oltárnej sviatosti.</li>
+
+                        <?php
+                            Teens($luminousTeens);
+                        ?>
+
                     </ol>
                 </div>
             </section>
@@ -81,11 +125,11 @@
 
                     <p><strong>Tajomstvá:</strong></p>
                     <ol class="teens">
-                        <li>Ježiš, ktorý sa pre nás krvou potil.</li>
-                        <li>Ježiš, ktorý bol pre nás bičovaný.</li>
-                        <li>Ježiš, ktorý bol pre nás tŕním korunovaný.</li>
-                        <li>Ježiš, ktorý pre nás kríž niesol.</li>
-                        <li>Ježiš, ktorý bol pre nás ukrižovaný.</li>
+
+                        <?php
+                            Teens($sorrowfulTeens);
+                        ?>
+
                     </ol>
                 </div>
             </section>
@@ -103,11 +147,11 @@
 
                     <p><strong>Tajomstvá:</strong></p>
                     <ol class="teens">
-                        <li>Ježiš, ktorý slávne vstal z mŕtvych.</li>
-                        <li>Ježiš, ktorý slávne vystúpil do neba.</li>
-                        <li>Ježiš, ktorý nám zoslal Ducha Svätého.</li>
-                        <li>Ježiš, ktorý ťa, Panna, vzal do neba.</li>
-                        <li>Ježiš, ktorý ťa, Panna, v nebi korunoval.</li>
+
+                        <?php
+                            Teens($gloriousTeens);
+                        ?>
+
                     </ol>
                 </div>
             </section>
