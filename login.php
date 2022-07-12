@@ -1,3 +1,30 @@
+<?php
+
+    if(isset($_POST['submit'])){
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+
+        // overenie, ci username a password existuju = ci odoslalo data z formulara
+        if($username && $password) {
+            echo $username;
+            echo '<br>';
+            echo $password;
+        } else {
+            echo 'Nieco nam chyba';
+        }
+
+        // pripojenie do databazy
+        $connection = mysqli_connect('localhost', 'root', '', 'fiato_login');
+
+        if($connection){
+            echo 'sme pripojeni k databaze';
+        } else {
+            echo 'nepripojeni k databaze, niekde je chyba';
+        }
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,10 +44,10 @@
     
     <main class="login">
 
-        <form id="login-form">
-            <input type="text" name="loginName" id="login-name" placeholder="Zadaj meno: fiato">
-            <input type="password" name="loginPassword" id="login-password" placeholder="Zadaj heslo: rosa">
-            <input type="submit" value="Potvď" id="submit">
+        <form id="login-form" method="POST">
+            <input type="text" name="username" id="login-name" placeholder="Zadaj meno: fiato">
+            <input type="password" name="password" id="login-password" placeholder="Zadaj heslo: rosa">
+            <input type="submit" name="submit" value="Potvď" id="submit">
         </form>
         <div class="wrong-data">
             <p class="wrong-data-text"></p>
