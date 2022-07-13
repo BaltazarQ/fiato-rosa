@@ -1,6 +1,6 @@
 <?php
 
-// LOGIN FORM
+// REGISTRATION FORM
     if(isset($_POST['loginSubmit'])){
         $username = $_POST['username'];
         $password = $_POST['password'];
@@ -14,55 +14,11 @@
         
         $password = crypt($password, $hasFormat_salt);
         $controlPassword = crypt($controlPassword, $hasFormat_salt);
-        echo $username;
-        echo '<br>';
-        echo $password;
-        echo '<br>';
-        echo $controlPassword;
-
-        // overenie, ci username a password existuju = ci odoslalo data z formulara
-        if($username && $password) {
-            echo $username;
-            echo '<br>';
-            echo $password;
-        } else {
-            echo 'Nieco nam chyba';
-        }
-
-        // pripojenie do databazy
-        $connection = mysqli_connect('localhost', 'root', '', 'fiato_login');
-
-        if($connection){
-            echo 'sme pripojeni k databaze';
-        } else {
-            echo 'nepripojeni k databaze, niekde je chyba';
-        }
-
-        // odoslanie dat do databazy
-        $query = "INSERT INTO users(username, password) VALUES('$username', '$password')";
-
-        $result = mysqli_query($connection, $query);
-
-        if(!$result){
-            die('Odoslanie do databazy zlyhalo'.mysqli_error());
-        }
-    }
-
-
-    // REGISTRATION FORM
-    if(isset($_POST['RegistrationSubmit'])){
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-
-        // zahashovanie hesla
-        $hashFormat = "$2y$10$";
-        $salt = "u9YPT1kh13fEPGlMmkWrID";
-        
-        $hasFormat_salt = $hashFormat.$salt;
-        
-        $password = crypt($password, $hasFormat_salt);
-        echo $password;
-
+        // echo $username;
+        // echo '<br>';
+        // echo $password;
+        // echo '<br>';
+        // echo $controlPassword;
 
         // pripojenie do databazy
         $connection = mysqli_connect('localhost', 'root', '', 'fiato_login');
@@ -73,14 +29,61 @@
         //     echo 'nepripojeni k databaze, niekde je chyba';
         // }
 
-        // // odoslanie dat do databazy
-        // $query = "INSERT INTO users(username, password) VALUES('$username', '$password')";
+        if ($password !== $controlPassword){
+            echo 'hesla sa nezhoduju';
+            echo '<br>';
+        } else {
+            echo 'heslo je v poriadku';
+            echo '<br>';
 
-        // $result = mysqli_query($connection, $query);
+            // overenie, ci username a password existuju = ci odoslalo data z formulara
+            if($username && $password) {
+                echo $username;
+                echo '<br>';
+                echo $password;
+                echo '<br>';
+    
+                // odoslanie dat do databazy
+                $query = "INSERT INTO users(username, password) VALUES('$username', '$password')";
+        
+                $result = mysqli_query($connection, $query);
+        
+                if(!$result){
+                    die('Odoslanie do databazy zlyhalo'.mysqli_error());
+                }
+            } else {
+                echo 'Nieco nam chyba';
+            }
+        }
+    }
 
-        // if(!$result){
-        //     die('Odoslanie do databazy zlyhalo'.mysqli_error());
-        // }
+    // LOGIN FORM
+    if(isset($_POST['registrationSubmit'])){
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+
+        // zahashovanie hesla
+        $hashFormat = "$2y$10$";
+        $salt = "u9YPT1kh13fEPGlMmkWrID";
+        
+        $hasFormat_salt = $hashFormat.$salt;
+        
+        $password = crypt($password, $hasFormat_salt);
+
+        // pripojenie do databazy
+        $connection = mysqli_connect('localhost', 'root', '', 'fiato_login');
+
+        // vyber dat z databazy podla prihlasovacieho mena
+        $controlPassword = "SELECT * FROM users WHERE username='$username'";
+
+        $controlResult = mysqli_query($connection, $controlPassword);
+        $controlRow = mysqli_fetch_assoc($controlResult);
+
+        if($password === $controlRow["password"]) {
+            echo 'uspesne prihlaseny';
+        } else {
+            echo 'zle meno alebo heslo';
+        }
     }
 ?>
 
@@ -119,9 +122,18 @@
         <form id="registration-form" class="my-form" method="POST">
             <input type="text" name="username" class="login-name" placeholder="Zadaj meno">
             <input type="password" name="password" class="login-password" placeholder="Zadaj heslo">
-            <input type="password" name="controlPassword" class="login-password" placeholder="Zopakuj heslo">
+            <!-- <input type="password" name="controlPassword" class="login-password" placeholder="Zopakuj heslo"> -->
             <input type="submit" name="registrationSubmit" value="Potvď" id="submit">
         </form>
+
+        <!-- <?php 
+            while($row = mysqli_fetch_assoc($result)){
+                echo '<pre>';
+                print_r($row);
+                echo '<pre>';
+            }
+        ?> -->
+
         <div class="wrong-data">
             <p class="wrong-data-text"></p>
         </div>
