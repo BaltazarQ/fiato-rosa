@@ -1,8 +1,24 @@
 <?php
 
-    if(isset($_POST['submit'])){
+// LOGIN FORM
+    if(isset($_POST['loginSubmit'])){
         $username = $_POST['username'];
         $password = $_POST['password'];
+        $controlPassword = $_POST['controlPassword'];
+
+        // zahashovanie hesla
+        $hashFormat = "$2y$10$";
+        $salt = "u9YPT1kh13fEPGlMmkWrID";
+        
+        $hasFormat_salt = $hashFormat.$salt;
+        
+        $password = crypt($password, $hasFormat_salt);
+        $controlPassword = crypt($controlPassword, $hasFormat_salt);
+        echo $username;
+        echo '<br>';
+        echo $password;
+        echo '<br>';
+        echo $controlPassword;
 
         // overenie, ci username a password existuju = ci odoslalo data z formulara
         if($username && $password) {
@@ -20,6 +36,15 @@
             echo 'sme pripojeni k databaze';
         } else {
             echo 'nepripojeni k databaze, niekde je chyba';
+        }
+
+        // odoslanie dat do databazy
+        $query = "INSERT INTO users(username, password) VALUES('$username', '$password')";
+
+        $result = mysqli_query($connection, $query);
+
+        if(!$result){
+            die('Odoslanie do databazy zlyhalo'.mysqli_error());
         }
     }
 ?>
@@ -44,10 +69,23 @@
     
     <main class="login">
 
-        <form id="login-form" method="POST">
-            <input type="text" name="username" id="login-name" placeholder="Zadaj meno: fiato">
-            <input type="password" name="password" id="login-password" placeholder="Zadaj heslo: rosa">
-            <input type="submit" name="submit" value="Potvď" id="submit">
+    <h3>Registrácia</h3>
+        <form id="login-form" class="my-form" method="POST">
+            <input type="text" name="username" class="login-name" placeholder="Zadaj meno">
+            <input type="password" name="password" class="login-password" placeholder="Zadaj heslo">
+            <input type="password" name="controlPassword" class="login-password" placeholder="Zopakuj heslo">
+            <input type="submit" name="loginSubmit" value="Potvď" id="submit">
+        </form>
+        <div class="wrong-data">
+            <p class="wrong-data-text"></p>
+        </div>
+
+        <h3>Prihlásenie</h3>
+        <form id="registration-form" class="my-form" method="POST">
+            <input type="text" name="username" class="login-name" placeholder="Zadaj meno">
+            <input type="password" name="password" class="login-password" placeholder="Zadaj heslo">
+            <input type="password" name="controlPassword" class="login-password" placeholder="Zopakuj heslo">
+            <input type="submit" name="registrationSubmit" value="Potvď" id="submit">
         </form>
         <div class="wrong-data">
             <p class="wrong-data-text"></p>
