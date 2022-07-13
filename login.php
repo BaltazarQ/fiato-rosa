@@ -47,6 +47,41 @@
             die('Odoslanie do databazy zlyhalo'.mysqli_error());
         }
     }
+
+
+    // REGISTRATION FORM
+    if(isset($_POST['RegistrationSubmit'])){
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+
+        // zahashovanie hesla
+        $hashFormat = "$2y$10$";
+        $salt = "u9YPT1kh13fEPGlMmkWrID";
+        
+        $hasFormat_salt = $hashFormat.$salt;
+        
+        $password = crypt($password, $hasFormat_salt);
+        echo $password;
+
+
+        // pripojenie do databazy
+        $connection = mysqli_connect('localhost', 'root', '', 'fiato_login');
+
+        // if($connection){
+        //     echo 'sme pripojeni k databaze';
+        // } else {
+        //     echo 'nepripojeni k databaze, niekde je chyba';
+        // }
+
+        // // odoslanie dat do databazy
+        // $query = "INSERT INTO users(username, password) VALUES('$username', '$password')";
+
+        // $result = mysqli_query($connection, $query);
+
+        // if(!$result){
+        //     die('Odoslanie do databazy zlyhalo'.mysqli_error());
+        // }
+    }
 ?>
 
 

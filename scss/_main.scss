@@ -173,7 +173,7 @@ LOGIN
     @include flex-column;
     align-items: center;
     
-    #login-form {
+    .my-form {
         @include flex-column;
         align-items: center;
         margin-top: 100px;
