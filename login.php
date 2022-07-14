@@ -18,8 +18,8 @@
     <main class="login">
 
         <div class="login-menu">
-            <h3><a class="reg-menu" href="#">Registrácia</a></h3>
-            <h3><a class="login-menu" href="#">Prihlásenie</a></h3>
+            <h3><a class="reg-choice" href="#">Registrácia</a></h3>
+            <h3><a class="login-choice" href="#">Prihlásenie</a></h3>
         </div>
         <form id="registration-form" class="my-form" method="POST">
             <input type="text" name="username" class="login-name" placeholder="Zadaj meno">

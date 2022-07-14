@@ -176,7 +176,8 @@ LOGIN
     &-menu {
         @include flex-row;
         align-items: center;
-        margin-bottom: 1em;
+        margin-top: 5em;
+        margin-bottom: 2em;
 
         h3 a {
             margin: 0;
@@ -188,11 +189,12 @@ LOGIN
                 text-shadow: $header-border 1px 1px 0px;
             }
         }
+
+        .reg-choice {
+            border-bottom: $navbar-hover 1px solid;
+        }
     }
     
-    .reg-menu {
-        border-bottom: $navbar-hover 1px solid;
-    }
     
     .my-form {
         @include flex-column;

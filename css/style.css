@@ -224,7 +224,8 @@ LOGIN
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-bottom: 1em; }
+    margin-top: 5em;
+    margin-bottom: 2em; }
     .login-menu h3 a {
       margin: 0;
       padding: 0.5em 2em;
@@ -232,8 +233,8 @@ LOGIN
       .login-menu h3 a:hover {
         color: #ff8095;
         text-shadow: #7ccaff 1px 1px 0px; }
-  .login .reg-menu {
-    border-bottom: #ff8095 1px solid; }
+    .login-menu .reg-choice {
+      border-bottom: #ff8095 1px solid; }
   .login .my-form {
     display: flex;
     flex-direction: column;

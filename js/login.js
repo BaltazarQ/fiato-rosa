@@ -19,3 +19,26 @@
 //          wrongDataText.textContent = 'Zadal si zlé meno alebo heslo.'
 //      }
 //  })
+
+let regChoice = document.querySelector('.reg-choice')
+let loginChoice = document.querySelector('.login-choice')
+let regForm = document.querySelector('#registration-form')
+let loginForm = document.querySelector('#login-form')
+
+loginChoice.addEventListener('click', function(event){
+    event.preventDefault()
+    regChoice.style.borderBottom = 'none'
+    loginChoice.style.borderBottom = 'rgb(255, 128, 149) 1px solid'
+
+    regForm.style.display = 'none'
+    loginForm.style.display = 'flex'
+})
+
+regChoice.addEventListener('click', function(event){
+    event.preventDefault()
+    regChoice.style.borderBottom = 'rgb(255, 128, 149) 1px solid'
+    loginChoice.style.borderBottom = 'none'
+    
+    regForm.style.display = 'flex'
+    loginForm.style.display = 'none'
+})
