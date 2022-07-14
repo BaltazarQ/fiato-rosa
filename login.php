@@ -1,24 +1,46 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;400;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Fiato rosa</title>
+</head>
+<body>
+    
+<?php 
+    include 'header.php';
+?>
+    
+    <main class="login">
 
-// REGISTRATION FORM
+    <h3>Registrácia</h3>
+        <form id="login-form" class="my-form" method="POST">
+            <input type="text" name="username" class="login-name" placeholder="Zadaj meno">
+            <input type="password" name="password" class="login-password" placeholder="Zadaj heslo">
+            <input type="password" name="controlPassword" class="login-password" placeholder="Zopakuj heslo">
+            <input type="submit" name="loginSubmit" value="Potvď" id="submit">
+        </form>
+
+<?php
+        // REGISTRATION FORM
     if(isset($_POST['loginSubmit'])){
         $username = $_POST['username'];
         $password = $_POST['password'];
         $controlPassword = $_POST['controlPassword'];
+        $succesRegistration = 'Boli ste úspešne prihlásený.';
+        $failurRegistration = 'Prihlásenie neúspešné, skontrolujte meno a/alebo heslo.';
 
         // zahashovanie hesla
         $hashFormat = "$2y$10$";
         $salt = "u9YPT1kh13fEPGlMmkWrID";
-        
         $hasFormat_salt = $hashFormat.$salt;
         
         $password = crypt($password, $hasFormat_salt);
         $controlPassword = crypt($controlPassword, $hasFormat_salt);
-        // echo $username;
-        // echo '<br>';
-        // echo $password;
-        // echo '<br>';
-        // echo $controlPassword;
 
         // pripojenie do databazy
         $connection = mysqli_connect('localhost', 'root', '', 'fiato_login');
@@ -56,6 +78,20 @@
             }
         }
     }
+?>
+        <div class="wrong-data">
+            <p class="wrong-data-text"></p>
+        </div>
+
+        <h3>Prihlásenie</h3>
+        <form id="registration-form" class="my-form" method="POST">
+            <input type="text" name="username" class="login-name" placeholder="Zadaj meno">
+            <input type="password" name="password" class="login-password" placeholder="Zadaj heslo">
+            <!-- <input type="password" name="controlPassword" class="login-password" placeholder="Zopakuj heslo"> -->
+            <input type="submit" name="registrationSubmit" value="Potvď" id="submit">
+        </form>
+
+<?php
 
     // LOGIN FORM
     if(isset($_POST['registrationSubmit'])){
@@ -65,7 +101,6 @@
         // zahashovanie hesla
         $hashFormat = "$2y$10$";
         $salt = "u9YPT1kh13fEPGlMmkWrID";
-        
         $hasFormat_salt = $hashFormat.$salt;
         
         $password = crypt($password, $hasFormat_salt);
@@ -86,53 +121,6 @@
         }
     }
 ?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;400;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Fiato rosa</title>
-</head>
-<body>
-    
-<?php 
-    include 'header.php';
-?>
-    
-    <main class="login">
-
-    <h3>Registrácia</h3>
-        <form id="login-form" class="my-form" method="POST">
-            <input type="text" name="username" class="login-name" placeholder="Zadaj meno">
-            <input type="password" name="password" class="login-password" placeholder="Zadaj heslo">
-            <input type="password" name="controlPassword" class="login-password" placeholder="Zopakuj heslo">
-            <input type="submit" name="loginSubmit" value="Potvď" id="submit">
-        </form>
-        <div class="wrong-data">
-            <p class="wrong-data-text"></p>
-        </div>
-
-        <h3>Prihlásenie</h3>
-        <form id="registration-form" class="my-form" method="POST">
-            <input type="text" name="username" class="login-name" placeholder="Zadaj meno">
-            <input type="password" name="password" class="login-password" placeholder="Zadaj heslo">
-            <!-- <input type="password" name="controlPassword" class="login-password" placeholder="Zopakuj heslo"> -->
-            <input type="submit" name="registrationSubmit" value="Potvď" id="submit">
-        </form>
-
-        <!-- <?php 
-            while($row = mysqli_fetch_assoc($result)){
-                echo '<pre>';
-                print_r($row);
-                echo '<pre>';
-            }
-        ?> -->
 
         <div class="wrong-data">
             <p class="wrong-data-text"></p>
