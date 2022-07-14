@@ -17,8 +17,11 @@
     
     <main class="login">
 
-    <h3>Registrácia</h3>
-        <form id="login-form" class="my-form" method="POST">
+        <div class="login-menu">
+            <h3><a class="reg-menu" href="#">Registrácia</a></h3>
+            <h3><a class="login-menu" href="#">Prihlásenie</a></h3>
+        </div>
+        <form id="registration-form" class="my-form" method="POST">
             <input type="text" name="username" class="login-name" placeholder="Zadaj meno">
             <input type="password" name="password" class="login-password" placeholder="Zadaj heslo">
             <input type="password" name="controlPassword" class="login-password" placeholder="Zopakuj heslo">
@@ -79,12 +82,11 @@
         }
     }
 ?>
-        <div class="wrong-data">
+        <!-- <div class="wrong-data">
             <p class="wrong-data-text"></p>
-        </div>
+        </div> -->
 
-        <h3>Prihlásenie</h3>
-        <form id="registration-form" class="my-form" method="POST">
+        <form id="login-form" class="my-form" method="POST">
             <input type="text" name="username" class="login-name" placeholder="Zadaj meno">
             <input type="password" name="password" class="login-password" placeholder="Zadaj heslo">
             <!-- <input type="password" name="controlPassword" class="login-password" placeholder="Zopakuj heslo"> -->
@@ -122,9 +124,9 @@
     }
 ?>
 
-        <div class="wrong-data">
+        <!-- <div class="wrong-data">
             <p class="wrong-data-text"></p>
-        </div>
+        </div> -->
 
     </main>
     

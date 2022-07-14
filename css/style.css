@@ -220,18 +220,55 @@ LOGIN
   display: flex;
   flex-direction: column;
   align-items: center; }
+  .login-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 1em; }
+    .login-menu h3 a {
+      margin: 0;
+      padding: 0.5em 2em;
+      color: #0068af; }
+      .login-menu h3 a:hover {
+        color: #ff8095;
+        text-shadow: #7ccaff 1px 1px 0px; }
+  .login .reg-menu {
+    border-bottom: #ff8095 1px solid; }
   .login .my-form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 100px;
-    width: 300px; }
+    width: 300px;
+    text-shadow: #7ccaff 1px 1px 0px; }
     .login .my-form input {
       padding: 5px;
-      margin: 5px; }
+      margin: 5px;
+      border: none;
+      border: #7ccaff 1px solid; }
+      .login .my-form input:hover {
+        background: #def5ff; }
+      .login .my-form input::placeholder {
+        color: #888; }
     .login .my-form #submit {
       padding: 5px 25px;
-      cursor: pointer; }
+      cursor: pointer;
+      background: #7ccaff;
+      border-radius: 2px; }
+      .login .my-form #submit:hover {
+        color: #def5ff;
+        background: #ff8095;
+        transform: scale(1.1);
+        transition: 400ms;
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        -o-transform: scale(1.1);
+        -webkit-transition: 400ms;
+        -moz-transition: 400ms;
+        -ms-transition: 400ms;
+        -o-transition: 400ms; }
+  .login #login-form {
+    display: none; }
 
 .contact {
   display: flex;

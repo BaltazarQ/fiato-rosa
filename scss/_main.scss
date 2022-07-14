@@ -172,22 +172,76 @@ LOGIN
 .login {
     @include flex-column;
     align-items: center;
+
+    &-menu {
+        @include flex-row;
+        align-items: center;
+        margin-bottom: 1em;
+
+        h3 a {
+            margin: 0;
+            padding: 0.5em 2em;
+            color: $text-color;
+            
+            &:hover {
+                color: $navbar-hover;
+                text-shadow: $header-border 1px 1px 0px;
+            }
+        }
+    }
+    
+    .reg-menu {
+        border-bottom: $navbar-hover 1px solid;
+    }
     
     .my-form {
         @include flex-column;
         align-items: center;
-        margin-top: 100px;
+        // margin-top: 100px;
         width: 300px;
+        text-shadow: $header-border 1px 1px 0px;
+
 
         input {
             padding: 5px;
             margin: 5px;
+            border: none;
+            // background: $header-bg;
+            border: $header-border 1px solid;
+
+            &:hover {
+                background: $header-bg;
+            }
+
+            &::placeholder {
+                color: #888;
+            }
         }
 
         #submit {
             padding: 5px 25px;
             cursor: pointer;
+            background: $header-border;
+            border-radius: 2px;
+            &:hover {
+                color: $header-bg;
+                background: $navbar-hover;
+                transform: scale(1.1);
+                transition: 400ms;
+                -webkit-transform: scale(1.1);
+                -moz-transform: scale(1.1);
+                -ms-transform: scale(1.1);
+                -o-transform: scale(1.1);
+                -webkit-transition: 400ms;
+                -moz-transition: 400ms;
+                -ms-transition: 400ms;
+                -o-transition: 400ms;
+}
         }
+    }
+
+    #login-form {
+        display: none;
     }
 }
 
