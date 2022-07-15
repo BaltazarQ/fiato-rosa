@@ -11,7 +11,8 @@
 </head>
 <body>
     
-<?php 
+<?php
+
     include 'header.php';
 ?>
     
@@ -25,12 +26,12 @@
             <input type="text" name="username" class="login-name" placeholder="Zadaj meno">
             <input type="password" name="password" class="login-password" placeholder="Zadaj heslo">
             <input type="password" name="controlPassword" class="login-password" placeholder="Zopakuj heslo">
-            <input type="submit" name="loginSubmit" value="Potvď" id="submit">
+            <input type="submit" name="registrationSubmit" value="Potvď" id="submit">
         </form>
 
 <?php
         // REGISTRATION FORM
-    if(isset($_POST['loginSubmit'])){
+    if(isset($_POST['registrationSubmit'])){
         $username = $_POST['username'];
         $password = $_POST['password'];
         $controlPassword = $_POST['controlPassword'];
@@ -54,31 +55,18 @@
         //     echo 'nepripojeni k databaze, niekde je chyba';
         // }
 
-        if ($password !== $controlPassword){
-            echo 'hesla sa nezhoduju';
-            echo '<br>';
-        } else {
-            echo 'heslo je v poriadku';
-            echo '<br>';
-
-            // overenie, ci username a password existuju = ci odoslalo data z formulara
-            if($username && $password) {
-                echo $username;
-                echo '<br>';
-                echo $password;
-                echo '<br>';
-    
-                // odoslanie dat do databazy
-                $query = "INSERT INTO users(username, password) VALUES('$username', '$password')";
-        
-                $result = mysqli_query($connection, $query);
-        
-                if(!$result){
-                    die('Odoslanie do databazy zlyhalo'.mysqli_error());
+       if ($username !== '' || $password !== '' || $controlPassword !== ''){
+               // odoslanie dat do databazy
+               $query = "INSERT INTO users(username, password) VALUES('$username', '$password')";
+               $result = mysqli_query($connection, $query);
+               
+               if(!$result){
+                   die('Odoslanie do databazy zlyhalo'.mysqli_error());
                 }
-            } else {
-                echo 'Nieco nam chyba';
-            }
+                
+                header('Location: members.php');
+        } else {           
+            echo 'Chýba meno, heslo alebo potvrdenie hesla.';
         }
     }
 ?>
@@ -89,14 +77,13 @@
         <form id="login-form" class="my-form" method="POST">
             <input type="text" name="username" class="login-name" placeholder="Zadaj meno">
             <input type="password" name="password" class="login-password" placeholder="Zadaj heslo">
-            <!-- <input type="password" name="controlPassword" class="login-password" placeholder="Zopakuj heslo"> -->
-            <input type="submit" name="registrationSubmit" value="Potvď" id="submit">
+            <input type="submit" name="loginSubmit" value="Potvď" id="submit">
         </form>
 
 <?php
 
     // LOGIN FORM
-    if(isset($_POST['registrationSubmit'])){
+    if(isset($_POST['loginSubmit'])){
         $username = $_POST['username'];
         $password = $_POST['password'];
 
@@ -116,8 +103,10 @@
         $controlResult = mysqli_query($connection, $controlPassword);
         $controlRow = mysqli_fetch_assoc($controlResult);
 
-        if($password === $controlRow["password"]) {
+        // ak bude meno a heslo totozne s udajmi z databazy, presmeruj ma na stranku members.php
+        if($username === $controlRow["username"] && $password === $controlRow["password"]) {
             echo 'uspesne prihlaseny';
+            header('Location: members.php');
         } else {
             echo 'zle meno alebo heslo';
         }
