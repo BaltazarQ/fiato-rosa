@@ -26,5 +26,5 @@ editForm.addEventListener('submit', function(event){
     }
   }) 
   
-  location.href = 'index.html'
+  location.href = 'index.php'
 })
