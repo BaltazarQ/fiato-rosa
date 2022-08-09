@@ -41,11 +41,10 @@
         // zahashovanie hesla
         $hashFormat = "$2y$10$";
         $salt = "u9YPT1kh13fEPGlMmkWrID";
-        $hasFormat_salt = $hashFormat.$salt;
+        $hashFormat_salt = $hashFormat.$salt;
         
-        $password = crypt($password, $hasFormat_salt);
-        $controlPassword = crypt($controlPassword, $hasFormat_salt);
-
+        $password = crypt($password, $hashFormat_salt);
+        $controlPassword = crypt($controlPassword, $hashFormat_salt);
         // pripojenie do databazy
         $connection = mysqli_connect('localhost', 'root', '', 'fiato_login');
 
@@ -55,19 +54,26 @@
         //     echo 'nepripojeni k databaze, niekde je chyba';
         // }
 
-       if ($username !== '' || $password !== '' || $controlPassword !== ''){
-               // odoslanie dat do databazy
-               $query = "INSERT INTO users(username, password) VALUES('$username', '$password')";
-               $result = mysqli_query($connection, $query);
-               
-               if(!$result){
-                   die('Odoslanie do databazy zlyhalo'.mysqli_error());
-                }
-                
-                header('Location: members.php');
-        } else {           
-            echo 'Chýba meno, heslo alebo potvrdenie hesla.';
-        }
+    if ($username === ''){
+           echo 'Chýba meno.';
+    } else if ($password === '') {
+        echo 'Chýba heslo.';
+    } else if ($controlPassword === '') {
+        echo 'Chýba potvrdenie hesla.';
+    } else if ($controlPassword !== $password) {
+        echo 'Heslá sa nezhodujú.';
+    } else {
+
+        // odoslanie dat do databazy
+        $query = "INSERT INTO users(username, password) VALUES('$username', '$password')";
+        $result = mysqli_query($connection, $query);
+        
+        if(!$result){
+            die('Odoslanie do databazy zlyhalo'.mysqli_error());
+         }
+         
+         header('Location: members.php');
+    }
     }
 ?>
         <!-- <div class="wrong-data">
@@ -90,9 +96,9 @@
         // zahashovanie hesla
         $hashFormat = "$2y$10$";
         $salt = "u9YPT1kh13fEPGlMmkWrID";
-        $hasFormat_salt = $hashFormat.$salt;
+        $hashFormat_salt = $hashFormat.$salt;
         
-        $password = crypt($password, $hasFormat_salt);
+        $password = crypt($password, $hashFormat_salt);
 
         // pripojenie do databazy
         $connection = mysqli_connect('localhost', 'root', '', 'fiato_login');
