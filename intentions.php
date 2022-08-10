@@ -18,7 +18,7 @@
                 die('Odoslanie do databazy zlyhalo'.mysqli_error());
              }
              
-             echo 'umysel zapisany do databazy';
+            //  echo 'umysel zapisany do databazy';
             //  header('Location: members.php');
         } else {           
             echo 'Chýba meno, heslo alebo potvrdenie hesla.';
@@ -39,7 +39,7 @@
 
         while($row = mysqli_fetch_assoc($result)){
             echo '<div class="result-list">';
-            echo('<a href="#" class="one-intention">' . $row["intention"] . '</a>');
+            echo('<a href="edit.php#' . $row["id"] . '" class="one-intention">' . $row["intention"] . '</a>');
             echo('<button class="int-remove tooltip">X<span class="tooltiptext">Zmazať</span></button>');
             // echo();
             echo '</div>';
