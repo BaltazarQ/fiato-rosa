@@ -18,9 +18,18 @@
     <main class="edit-section">
 
         <p>Chceš zmeniť svoj úmysel? Môžeš tak urobiť v tomto políčku.</p>
-        <form id='edit-form'>
-            <textarea type="text" name="editIntention" id="edit-intention" placeholder="Úmysel"></textarea>
-            <input type="submit" value="Zmeň">
+        <form id='edit-form' method="$_POST">
+            <input type="text" name="editIntention" id="edit-intention" placeholder="Úmysel" value="<?php 
+                $id = $_GET['id'];
+                $connection = mysqli_connect('localhost', 'root', '', 'fiato_login');
+                $query = "SELECT * FROM intentions WHERE id=$id";
+        
+                $result = mysqli_query($connection, $query);
+
+                    $intention = mysqli_fetch_assoc($result);
+                    echo $intention["intention"];
+                ?>"></input>
+            <input type="submit" name="editSubmit" value="Zmeň">
         </form>
     </main>
     

@@ -4,14 +4,14 @@ let intention = getSavedNames()                                 // JSON.parse(lo
 let pageID = location.hash.substring(1)                         // vytiahnem ID z URL adresy
 
 
-window.addEventListener('load', function(event) {               // po nacitani stranky
+// window.addEventListener('load', function(event) {               // po nacitani stranky
     
-    intention.forEach((oneIntention) => {               
-        if(pageID === oneIntention.id) {                        // najdem objekt s hladanym ID
-            editIntention.value = oneIntention.intentions       // nastavim hodnotu inputu na hodnotu z objektu
-        }
-    })
-})
+//     intention.forEach((oneIntention) => {               
+//         if(pageID === oneIntention.id) {                        // najdem objekt s hladanym ID
+//             editIntention.value = oneIntention.intentions       // nastavim hodnotu inputu na hodnotu z objektu
+//         }
+//     })
+// })
 
 editForm.addEventListener('submit', function(event){
     event.preventDefault()
@@ -26,5 +26,5 @@ editForm.addEventListener('submit', function(event){
     }
   }) 
   
-  location.href = 'index.php'
+//   location.href = 'index.php'
 })
