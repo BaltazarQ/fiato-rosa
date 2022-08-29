@@ -13,18 +13,18 @@ let pageID = location.hash.substring(1)                         // vytiahnem ID 
 //     })
 // })
 
-editForm.addEventListener('submit', function(event){
-    event.preventDefault()
-    let newData = event.target.editIntention.value              // odchytim zmenenu hodnotu v inpute
+// editForm.addEventListener('submit', function(event){
+//     event.preventDefault()
+//     let newData = event.target.editIntention.value              // odchytim zmenenu hodnotu v inpute
     
-    intention.forEach((oneIntention) => {
+//     intention.forEach((oneIntention) => {
 
-        if(pageID === oneIntention.id) {                        // najdem objekt s hladanym ID
-            let searching = intention.indexOf(oneIntention)     // najdem index objektu 
-            intention[searching].intentions = newData           // nastavim mu novu hodnotu
-            saveNames(intention)                                // ulozim naspat do localStorage
-    }
-  }) 
+//         if(pageID === oneIntention.id) {                        // najdem objekt s hladanym ID
+//             let searching = intention.indexOf(oneIntention)     // najdem index objektu 
+//             intention[searching].intentions = newData           // nastavim mu novu hodnotu
+//             saveNames(intention)                                // ulozim naspat do localStorage
+//     }
+//   }) 
   
 //   location.href = 'index.php'
-})
+// })

@@ -2,7 +2,7 @@
 
 <?php
 
-    // LOGIN FORM
+    // ZAPISANIE UMYSLU DO DATABAZY
     if(isset($_POST['intentionSubmit'])){
         $intention = $_POST['intention'];
 
@@ -16,12 +16,12 @@
             
             if(!$result){
                 die('Odoslanie do databazy zlyhalo'.mysqli_error());
-             }
+             } else {           
+                echo 'Chýba meno, heslo alebo potvrdenie hesla.';
+            }
              
             //  echo 'umysel zapisany do databazy';
             //  header('Location: members.php');
-        } else {           
-            echo 'Chýba meno, heslo alebo potvrdenie hesla.';
         }
     }
 ?>
@@ -32,14 +32,17 @@
 
     <?php
 
+// VYPÍSANIE ÚMYSLOV Z DATABÁZY
         $connection = mysqli_connect('localhost', 'root', '', 'fiato_login');
         $query = "SELECT * FROM intentions";
 
         $result = mysqli_query($connection, $query);
 
         while($row = mysqli_fetch_assoc($result)){
+            $id = $row['id'];
+            $intention = $row['intention'];
             echo '<div class="result-list">';
-            echo('<a href="edit.php?id=' . $row["id"] . '" class="one-intention">' . $row["intention"] . '</a>');
+            echo('<a href="edit.php?id=' . $id . '&intention=' . $intention .'" class="one-intention">' . $row["intention"] . '</a>');
             echo('<button class="int-remove tooltip">X<span class="tooltiptext">Zmazať</span></button>');
             // echo();
             echo '</div>';

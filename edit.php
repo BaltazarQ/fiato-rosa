@@ -11,24 +11,29 @@
 </head>
 <body>
     
-<?php 
+<?php
     include 'header.php';
 ?>
     
     <main class="edit-section">
 
-        <p>Chceš zmeniť svoj úmysel? Môžeš tak urobiť v tomto políčku.</p>
-        <form id='edit-form' method="$_POST">
+        <p>Chceš zmeniť svoj úmysel? Môžeš tak urobiť v tomto políčku.</p>        
+        <form id="edit-form" method="$_POST" action="edit.php">
             <input type="text" name="editIntention" id="edit-intention" placeholder="Úmysel" value="<?php 
-                $id = $_GET['id'];
-                $connection = mysqli_connect('localhost', 'root', '', 'fiato_login');
-                $query = "SELECT * FROM intentions WHERE id=$id";
-        
-                $result = mysqli_query($connection, $query);
+                // $id = $_GET['id'];
 
-                    $intention = mysqli_fetch_assoc($result);
-                    echo $intention["intention"];
-                ?>"></input>
+                $myIntention = isset($_GET['intention']);
+                $myEditIntention = isset($_GET['editIntention']);
+
+                if($myIntention){
+                    $myIntention = $_GET['intention'];
+                    echo $myIntention;
+                } else if ($myEditIntention) {
+                    $myEditIntention = $_GET['editIntention'];
+                    echo $myEditIntention;
+                } else {
+                    echo 'nastala nejaka chyba';
+                };?>">
             <input type="submit" name="editSubmit" value="Zmeň">
         </form>
     </main>
