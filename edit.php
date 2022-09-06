@@ -1,3 +1,17 @@
+<?php
+    if(isset($_POST['editSubmit'])){
+        $id = $_GET['id'];
+        $editIntention = $_POST['editIntention'];
+
+        // UPDATE UDAJOV V DATABAZE
+        $connection = mysqli_connect('localhost', 'root', '', 'fiato_login');
+        $query = "UPDATE intentions SET intention='$editIntention' WHERE id = $id";
+        $result = mysqli_query($connection, $query);
+
+        header('Location:index.php');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,22 +32,46 @@
     <main class="edit-section">
 
         <p>Chceš zmeniť svoj úmysel? Môžeš tak urobiť v tomto políčku.</p>        
-        <form id="edit-form" method="$_POST" action="edit.php">
+        <form id="edit-form" method="POST" action="edit.php?id=<?php 
+                $id = $_GET['id'];
+                echo $id;
+        ?>">
+        <div class="old-intention">
+            <p>Tvoj pôvodný úmysel:</p>
+            <p id="old-intention"><?php 
+
+                    $id = $_GET['id'];
+
+                    // PRIPOJENIE DATABAZY a NACITANIE UDAJOV Z DATABAZY
+                    $connection = mysqli_connect('localhost', 'root', '', 'fiato_login');
+                    $query = "SELECT * FROM intentions WHERE id=$id";
+
+                    $result = mysqli_query($connection, $query);
+
+                    while($row = mysqli_fetch_assoc($result)){
+                        $id = $row['id'];
+                        $intention = $row['intention'];
+
+                        echo $intention;
+                    }
+                ?></p>
+        </div>
             <input type="text" name="editIntention" id="edit-intention" placeholder="Úmysel" value="<?php 
-                // $id = $_GET['id'];
+                $id = $_GET['id'];
 
-                $myIntention = isset($_GET['intention']);
-                $myEditIntention = isset($_GET['editIntention']);
+                // PRIPOJENIE DATABAZY a NACITANIE UDAJOV Z DATABAZY
+                $connection = mysqli_connect('localhost', 'root', '', 'fiato_login');
+                $query = "SELECT * FROM intentions WHERE id=$id";
+        
+                $result = mysqli_query($connection, $query);
+        
+                while($row = mysqli_fetch_assoc($result)){
+                    $id = $row['id'];
+                    $intention = $row['intention'];
 
-                if($myIntention){
-                    $myIntention = $_GET['intention'];
-                    echo $myIntention;
-                } else if ($myEditIntention) {
-                    $myEditIntention = $_GET['editIntention'];
-                    echo $myEditIntention;
-                } else {
-                    echo 'nastala nejaka chyba';
-                };?>">
+                    echo $intention;
+                }
+                ?>">
             <input type="submit" name="editSubmit" value="Zmeň">
         </form>
     </main>
