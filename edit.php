@@ -73,6 +73,7 @@
                 }
                 ?>">
             <input type="submit" name="editSubmit" value="Zmeň">
+            <input type="submit" name="deleteInt" value="Zmaž úmysel">
         </form>
     </main>
     
