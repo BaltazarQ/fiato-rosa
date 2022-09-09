@@ -21,8 +21,6 @@
     include 'intentions.php';
 ?>
     
-
-
         <div class="main-page">
             <h1>Ruženec</h1>
             <p>
@@ -58,8 +56,6 @@
 
     </footer>
     
-    <script src="js/uuidv4.js"></script>
-    <script src="js/functions.js"></script>
     <script src="js/header.js"></script>
     <script src="js/script.js"></script>
     
