@@ -41,11 +41,9 @@
         while($row = mysqli_fetch_assoc($result)){
             $id = $row['id'];
             $intention = $row['intention'];
-            echo '<div class="result-list">';
-            echo('<a href="edit.php?id=' . $id . '&intention=' . $intention .'" class="one-intention">' . $row["intention"] . '</a>');
-            echo('<button class="int-remove tooltip">X<span class="tooltiptext">Zmazať</span></button>');
-            // echo();
-            echo '</div>';
+            echo('<div class="result-list">
+                    <a name="oneIntention" href="edit.php?id=' . $id . '&intention=' . $intention .'" class="one-intention">' . $row["intention"] . '</a>
+                </div>');
         }
 
     ?>
