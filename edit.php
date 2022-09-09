@@ -1,9 +1,9 @@
 <?php
+    // UPDATE UDAJOV V DATABAZE
     if(isset($_POST['editSubmit'])){
         $id = $_GET['id'];
         $editIntention = $_POST['editIntention'];
 
-        // UPDATE UDAJOV V DATABAZE
         $connection = mysqli_connect('localhost', 'root', '', 'fiato_login');
         $query = "UPDATE intentions SET intention='$editIntention' WHERE id = $id";
         $result = mysqli_query($connection, $query);
@@ -11,11 +11,10 @@
         header('Location:index.php');
     };
 
-    
+    // DELETE UDAJOV Z DATABAZY
     if(isset($_POST['deleteInt'])){
         $id = $_GET['id'];
 
-        // DELETE UDAJOV Z DATABAZY
         $connection = mysqli_connect('localhost', 'root', '', 'fiato_login');
         $query = "DELETE FROM intentions WHERE id=$id";
         $result = mysqli_query($connection, $query);
@@ -47,27 +46,27 @@
         <form id="edit-form" method="POST" action="edit.php?id=<?php 
                 $id = $_GET['id'];
                 echo $id;
-        ?>">
-        <div class="old-intention">
-            <p>Tvoj pôvodný úmysel:</p>
-            <p id="old-intention"><?php 
+            ?>">
+            <div class="old-intention">
+                <p>Tvoj pôvodný úmysel:</p>
+                <p id="old-intention"><?php 
 
-                    $id = $_GET['id'];
+                        $id = $_GET['id'];
 
-                    // PRIPOJENIE DATABAZY a NACITANIE UDAJOV Z DATABAZY
-                    $connection = mysqli_connect('localhost', 'root', '', 'fiato_login');
-                    $query = "SELECT * FROM intentions WHERE id=$id";
+                        // PRIPOJENIE DATABAZY a NACITANIE UDAJOV Z DATABAZY
+                        $connection = mysqli_connect('localhost', 'root', '', 'fiato_login');
+                        $query = "SELECT * FROM intentions WHERE id=$id";
 
-                    $result = mysqli_query($connection, $query);
+                        $result = mysqli_query($connection, $query);
 
-                    while($row = mysqli_fetch_assoc($result)){
-                        $id = $row['id'];
-                        $intention = $row['intention'];
+                        while($row = mysqli_fetch_assoc($result)){
+                            $id = $row['id'];
+                            $intention = $row['intention'];
 
-                        echo $intention;
-                    }
-                ?></p>
-        </div>
+                            echo $intention;
+                        }
+                    ?></p>
+            </div>
             <input type="text" name="editIntention" id="edit-intention" placeholder="Úmysel" value="<?php 
                 $id = $_GET['id'];
 
@@ -84,18 +83,15 @@
                     echo $intention;
                 }
                 ?>">
-            <input type="submit" name="editSubmit" value="Zmeň">
-            <input type="submit" name="deleteInt" value="Zmaž úmysel">
+            <input class="editSubmit submit" type="submit" name="editSubmit" value="Zmeň">
+            <input class="deleteInt submit" type="submit" name="deleteInt" value="Zmaž úmysel">
         </form>
     </main>
     
-
     <footer>
 
     </footer>
     
-    <script src="js/uuidv4.js"></script>
-    <script src="js/functions.js"></script>
     <script src="js/header.js"></script>
     <script src="js/edit.js"></script>
     <script src="js/script.js"></script>
