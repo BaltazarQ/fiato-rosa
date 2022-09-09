@@ -9,7 +9,19 @@
         $result = mysqli_query($connection, $query);
 
         header('Location:index.php');
-    }
+    };
+
+    
+    if(isset($_POST['deleteInt'])){
+        $id = $_GET['id'];
+
+        // DELETE UDAJOV Z DATABAZY
+        $connection = mysqli_connect('localhost', 'root', '', 'fiato_login');
+        $query = "DELETE FROM intentions WHERE id=$id";
+        $result = mysqli_query($connection, $query);
+
+        header('Location:index.php');
+    };
 ?>
 
 <!DOCTYPE html>
