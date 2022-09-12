@@ -86,8 +86,10 @@
                         echo $intention;
                     }
                     ?>">
-                <input class="editSubmit submit" type="submit" name="editSubmit" value="Zmeň">
-                <input class="deleteInt submit" type="submit" name="deleteInt" value="Zmaž úmysel">
+                <div class="edit-submit">
+                    <input class="editSubmit submit" type="submit" name="editSubmit" value="Zmeň">
+                    <input class="deleteInt submit" type="submit" name="deleteInt" value="Zmaž úmysel">
+                </div>
             </form>
         </div>
     </main>
