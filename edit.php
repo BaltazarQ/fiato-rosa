@@ -70,7 +70,7 @@
                 ?>">
                 
                 <p>Tu môžeš svoj úmysel zmeniť: </p>
-                <input type="text" name="editIntention" id="edit-intention" placeholder="Úmysel" value="<?php 
+                <input type="text" name="editIntention" id="edit-intention" placeholder="Úmysel" autofocus value="<?php 
                     $id = $_GET['id'];
 
                     // PRIPOJENIE DATABAZY a NACITANIE UDAJOV Z DATABAZY
