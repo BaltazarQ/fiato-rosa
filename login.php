@@ -1,4 +1,5 @@
 <?php
+    ob_start();
         // REGISTRATION FORM
         function registrationForm() {
             if(isset($_POST['registrationSubmit'])){
@@ -55,6 +56,7 @@ function loginForm() {
     if(isset($_POST['loginSubmit'])){
         $username = $_POST['username'];
         $password = $_POST['password'];
+        $wrongLogIn;
 
         // zahashovanie hesla
         $hashFormat = "$2y$10$";
@@ -63,26 +65,28 @@ function loginForm() {
         
         $password = crypt($password, $hashFormat_salt);
 
-        // pripojenie do databazy
+        // pripojenie do databazy na localhoste
         $connection = mysqli_connect('localhost', 'root', '', 'fiato_login');
+        // pripojenie do databazy na serveri 
+        // $connection = mysqli_connect('localhost', 'id16404191_fiato', '0632-Balties22', 'id16404191_fiato_login');
 
         // vyber dat z databazy podla prihlasovacieho mena
         $controlPassword = "SELECT * FROM users";
-
         $controlResult = mysqli_query($connection, $controlPassword);
-        $controlRow = mysqli_fetch_assoc($controlResult);
 
-        // ak bude meno a heslo totozne s udajmi z databazy, presmeruj ma na stranku members.php
-        if ($username === '') {
-            echo 'Chýba meno';
-        } else if ($password === '' || $controlRow["password"] !== $password) {
-            echo 'Zlé heslo';
-        } else if($controlRow["username"] !== $username || $controlRow["password"] !== $password) {
-            echo 'Zlé meno alebo heslo';
-        } else if($controlRow["username"] === $username && $controlRow["password"] === $password) {
-            // echo 'uspesne prihlaseny';
-            header('Location: members.php');
+        // ak bude meno a heslo totozne s udajmi z databazy, presmeruj ma na stranku members.php, inak vypis chybu
+        while($row = mysqli_fetch_assoc($controlResult)) {
+            $dbUsername = $row['username'];
+            $dbPassword = $row['password'];
+            
+            if($dbUsername === $username && $dbPassword === $password) {
+                    echo 'uspesne prihlaseny';
+                    header('Location: members.php');
+            } else {
+                $wrongLogIn = 'Zlé meno alebo heslo';
+            }
         }
+        echo $wrongLogIn;
     }
 }
 ?>
