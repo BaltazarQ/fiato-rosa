@@ -156,14 +156,14 @@ let myMember = document.querySelector('#full-name')
 
 
 // funkcia na vratenie poloziek podla dlzky pola - nepouzite nikde
-function getOption() {
-    for (let i = 0; i < allMonth.length; i++) {
-        const element = allMonth[i];
-        return(element.index)
-    }
-  }
+// function getOption() {
+//     for (let i = 0; i < allMonth.length; i++) {
+//         const element = allMonth[i];
+//         return(element.index)
+//     }
+//   }
 
-getOption()
+// getOption()
 
 
 

@@ -57,7 +57,6 @@
     </footer>
     
     <script src="js/header.js"></script>
-    <script src="js/script.js"></script>
     
 </body>
 </html>
