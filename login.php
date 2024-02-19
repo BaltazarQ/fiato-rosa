@@ -1,53 +1,53 @@
 <?php
     ob_start();
-    // REGISTRATION FORM
-    function registrationForm() {
-        include 'private.php';
+    // // REGISTRATION FORM
+    // function registrationForm() {
+    //     include 'private.php';
 
-        if(isset($_POST['registrationSubmit'])){
-            $username = $_POST['username'];
-            $password = $_POST['password'];
-            $controlPassword = $_POST['controlPassword'];
+    //     if(isset($_POST['registrationSubmit'])){
+    //         $username = $_POST['username'];
+    //         $password = $_POST['password'];
+    //         $controlPassword = $_POST['controlPassword'];
     
-            // zahashovanie hesla
-            $hashFormat = "$2y$10$";
-            $salt = "u9YPT1kh13fEPGlMmkWrID";
-            $hashFormat_salt = $hashFormat.$salt;
+    //         // zahashovanie hesla
+    //         $hashFormat = "$2y$10$";
+    //         $salt = "u9YPT1kh13fEPGlMmkWrID";
+    //         $hashFormat_salt = $hashFormat.$salt;
             
-            $password = crypt($password, $hashFormat_salt);
-            $controlPassword = crypt($controlPassword, $hashFormat_salt);
-            // pripojenie do databazy
-            $connection = mysqli_connect($server, $db_username, $db_password, $database);
+    //         $password = crypt($password, $hashFormat_salt);
+    //         $controlPassword = crypt($controlPassword, $hashFormat_salt);
+    //         // pripojenie do databazy
+    //         $connection = mysqli_connect($server, $db_username, $db_password, $database);
     
-            // if($connection){
-            //     echo 'sme pripojeni k databaze';
-            // } else {
-            //     echo 'nepripojeni k databaze, niekde je chyba';
-            // }
+    //         // if($connection){
+    //         //     echo 'sme pripojeni k databaze';
+    //         // } else {
+    //         //     echo 'nepripojeni k databaze, niekde je chyba';
+    //         // }
     
-            if ($username === ''){
-                echo 'Chýba meno.';
-            } else if (empty($_POST['password'])) {
-                echo 'Chýba heslo.';
-            } else if (empty($_POST['password']) && empty($_POST['controlPassword'])) {
-                echo 'Chýba heslo a potvrdenie hesla.';
-            } else if (empty($_POST['controlPassword'])) {
-                echo 'Chýba potvrdenie hesla.';
-            } else if ($controlPassword !== $password) {
-                echo 'Heslá sa nezhodujú.';
-            } else {
-                // odoslanie dat do databazy
-                $query = "INSERT INTO users(username, password) VALUES('$username', '$password')";
-                $result = mysqli_query($connection, $query);
+    //         if ($username === ''){
+    //             echo 'Chýba meno.';
+    //         } else if (empty($_POST['password'])) {
+    //             echo 'Chýba heslo.';
+    //         } else if (empty($_POST['password']) && empty($_POST['controlPassword'])) {
+    //             echo 'Chýba heslo a potvrdenie hesla.';
+    //         } else if (empty($_POST['controlPassword'])) {
+    //             echo 'Chýba potvrdenie hesla.';
+    //         } else if ($controlPassword !== $password) {
+    //             echo 'Heslá sa nezhodujú.';
+    //         } else {
+    //             // odoslanie dat do databazy
+    //             $query = "INSERT INTO users(username, password) VALUES('$username', '$password')";
+    //             $result = mysqli_query($connection, $query);
                 
-                if(!$result){
-                    die('Odoslanie do databazy zlyhalo'.mysqli_error());
-                };
+    //             if(!$result){
+    //                 die('Odoslanie do databazy zlyhalo'.mysqli_error());
+    //             };
                 
-                header('Location: members.php');
-            }
-        }
-    }
+    //             header('Location: members.php');
+    //         }
+    //     }
+    // }
 
 
     // LOGIN FORM
@@ -80,7 +80,7 @@
                 
                 if($dbUsername === $username && $dbPassword === $password) {
                         echo 'uspesne prihlaseny';
-                        header('Location: members.php');
+                        header('Location: admin.php');
                 } else {
                     $wrongLogIn = 'Zlé meno alebo heslo';
                 }
@@ -113,18 +113,22 @@
     <main class="login">
 
         <div class="login-menu">
-            <h3><a class="reg-choice" href="#">Registrácia</a></h3>
+            <!-- <h3><a class="reg-choice" href="#">Registrácia</a></h3> -->
             <h3><a class="login-choice" href="#">Prihlásenie</a></h3>
         </div>
-        <form id="registration-form" class="my-form" method="POST" action="login.php">
+        <!-- <form id="registration-form" class="my-form" method="POST" action="login.php">
             <input type="text" name="username" class="login-name" placeholder="Zadaj meno">
             <input type="password" name="password" class="login-password" placeholder="Zadaj heslo">
             <input type="password" name="controlPassword" class="login-password" placeholder="Zopakuj heslo">
             <input type="submit" name="registrationSubmit" value="Potvď" class="submit">
         </form>
         <div class="wrong-data">
-            <p class="wrong-data-text"><?php registrationForm()?></p>
-        </div>
+            <p class="wrong-data-text">
+                <?php 
+                // registrationForm()
+                ?>
+            </p>
+        </div> -->
 
         <form id="login-form" class="my-form" method="POST" action="login.php">
             <input type="text" name="username" class="login-name" placeholder="Zadaj meno">
